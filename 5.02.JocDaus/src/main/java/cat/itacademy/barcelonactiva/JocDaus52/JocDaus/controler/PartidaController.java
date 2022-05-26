@@ -36,7 +36,7 @@ public class PartidaController {
 	public ResponseEntity<?> listadoPartidas(@PathVariable("id") Long id){
 		//List<Partida> partidas=;
 		
-		return  ResponseEntity.status(HttpStatus.CREATED).body(partidaService.FindPartidaById(id));
+		return  ResponseEntity.status(HttpStatus.OK).body(partidaService.FindPartidaById(id));
 	}
 	
 	@PostMapping("{id}/games")

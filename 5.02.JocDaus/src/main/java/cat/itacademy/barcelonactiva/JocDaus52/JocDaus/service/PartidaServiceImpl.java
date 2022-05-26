@@ -5,12 +5,14 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import cat.itacademy.barcelonactiva.JocDaus52.JocDaus.model.domain.Jugador;
 import cat.itacademy.barcelonactiva.JocDaus52.JocDaus.model.domain.Partida;
 import cat.itacademy.barcelonactiva.JocDaus52.JocDaus.repository.IJugadorRepository;
 import cat.itacademy.barcelonactiva.JocDaus52.JocDaus.repository.IPartidaRepository;
 
+@Service
 public class PartidaServiceImpl implements IPartidaService {
 
 	@Autowired

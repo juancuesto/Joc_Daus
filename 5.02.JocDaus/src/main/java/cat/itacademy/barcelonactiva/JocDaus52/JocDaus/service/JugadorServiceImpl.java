@@ -8,6 +8,8 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import cat.itacademy.barcelonactiva.JocDaus52.JocDaus.model.domain.Jugador;
 import cat.itacademy.barcelonactiva.JocDaus52.JocDaus.model.domain.Partida;
 import cat.itacademy.barcelonactiva.JocDaus52.JocDaus.repository.IJugadorRepository;
@@ -25,15 +27,15 @@ public class JugadorServiceImpl implements IJugadorService {
 	}
 
 	@Override
+	@Transactional
 	public Jugador Save(Jugador jugador) {
-		String aux = jugador.getNombre();
-		List<Jugador> lista = jugadorRepo.findAll();
+		/*List<Jugador> lista = jugadorRepo.findAll();
 		for (Jugador elemento : lista) {
-			if ((elemento.getNombre().equalsIgnoreCase(aux)) && !(aux.equalsIgnoreCase("anonimo"))) {
+			if ((elemento.getNombre().equalsIgnoreCase(jugador.getNombre())) || (jugador.getNombre()=="")) {
 				System.out.println("El nombre esta registrado");
 				jugador.setNombre("Anónimo");
 			}
-		}
+		}*/
 
 		return jugadorRepo.save(jugador);
 	}
