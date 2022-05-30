@@ -35,7 +35,7 @@ public class PartidaServiceImpl implements IPartidaService {
 	}
 
 	@Override
-	public List<Partida> FindPartidaById(Long id) {
+	public List<Partida> FindPartidaByJugadorId(Long id) {
 		
 		Jugador jugador=jugadorRepo.getById(id);
 		return jugador.getResultados();

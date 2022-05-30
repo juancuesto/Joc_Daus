@@ -15,8 +15,8 @@ public interface IPartidaService {
 	
 	public Partida save(Partida partida);
 	
-	public List<Partida> FindPartidaById(Long id);
-	public Partida hacerTirada(Long id);
+	public List<Partida> FindPartidaByJugadorId(Long id);
+	public Partida hacerTirada(Long jugadorid);
 	
 
 }

@@ -3,6 +3,7 @@ package cat.itacademy.barcelonactiva.JocDaus52.JocDaus.model.domain;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -31,17 +32,16 @@ public class Jugador implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "jugadorId")
 	private Long jugadorId;
-	@Column(name = "Nombre", length = 100, nullable = true)
+	@Column(name = "Nombre", length = 100, nullable = false)
 	private String nombre;
 	@Column(name = "fecha_registro")
 	private LocalDate fecha_registro;
 	@Column(name = "Porcentaje_Exito")
 	private double porcentajeExito;
 	
-	@OneToMany(mappedBy = "jugador", fetch = FetchType.LAZY,
-            cascade = CascadeType.ALL)
-	@Column(name="Resultados")
-	List<Partida> resultados;
+	@OneToMany(mappedBy = "jugador", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name="Resultados")
+	List<Partida> resultados=new ArrayList<>();
 	
 	
 	

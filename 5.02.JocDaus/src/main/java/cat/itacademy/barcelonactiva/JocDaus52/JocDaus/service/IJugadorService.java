@@ -11,8 +11,8 @@ public interface IJugadorService {
 public List<Jugador> ListadoJugadores();
 	
 	public Jugador Save(Jugador jugador);
-	public Optional<Jugador> findById(Long id);
-	public void eliminarById(Long id);
+	public Optional<Jugador> getJugadorById(Long id);
+	public boolean eliminarJugadorById(Long id);
 	public Optional<Jugador> MejorJugador();
 	
 

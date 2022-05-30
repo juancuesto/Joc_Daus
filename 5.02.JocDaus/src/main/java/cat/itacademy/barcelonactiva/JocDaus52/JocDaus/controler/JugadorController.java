@@ -44,7 +44,7 @@ public class JugadorController{
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<?> read(@PathVariable (value="id") Long jugadorId){
-		Optional<Jugador> ojugador=jugadorService.findById(jugadorId);
+		Optional<Jugador> ojugador=jugadorService.getJugadorById(jugadorId);
 		
 		if(! ojugador.isPresent()) {
 			return ResponseEntity.notFound().build();
@@ -58,7 +58,7 @@ public class JugadorController{
 	@PutMapping("/{id}")
 	public ResponseEntity<?> update(@RequestBody Jugador jugadorDetails ,@PathVariable (value="id") Long jugadorId) {
 		
-		Optional<Jugador> ojugador=jugadorService.findById(jugadorId);
+		Optional<Jugador> ojugador=jugadorService.getJugadorById(jugadorId);
 		if(! ojugador.isPresent()) {
 			return ResponseEntity.notFound().build();
 		}
@@ -70,11 +70,11 @@ public class JugadorController{
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> delete(@PathVariable (value="id") Long jugadorId){
 		
-		if(! jugadorService.findById(jugadorId).isPresent()) {
+		if(! jugadorService.getJugadorById(jugadorId).isPresent()) {
 			return ResponseEntity.notFound().build();
 		}
 	
-		jugadorService.eliminarById(jugadorId);
+		jugadorService.eliminarJugadorById(jugadorId);
 		return ResponseEntity.ok().build();
 		
 	}

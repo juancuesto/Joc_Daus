@@ -41,15 +41,22 @@ public class JugadorServiceImpl implements IJugadorService {
 	}
 
 	@Override
-	public Optional<Jugador> findById(Long id) {
+	public Optional<Jugador> getJugadorById(Long id) {
 
 		return jugadorRepo.findById(id);
 	}
 
 	@Override
-	public void eliminarById(Long id) {
+	public boolean eliminarJugadorById(Long id) {
 
-		jugadorRepo.deleteById(id);
+		Boolean result=false;
+		if(jugadorRepo.findById(id)==null) {
+			return result;
+		}else {
+			result=true;
+			jugadorRepo.deleteById(id);
+			return result;
+		}
 	}
 
 	@Override

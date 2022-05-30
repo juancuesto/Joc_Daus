@@ -36,7 +36,7 @@ public class PartidaController {
 	public ResponseEntity<?> listadoPartidas(@PathVariable("id") Long id){
 		//List<Partida> partidas=;
 		
-		return  ResponseEntity.status(HttpStatus.OK).body(partidaService.FindPartidaById(id));
+		return  ResponseEntity.status(HttpStatus.OK).body(partidaService.FindPartidaByJugadorId(id));
 	}
 	
 	@PostMapping("{id}/games")
@@ -47,7 +47,7 @@ public class PartidaController {
 	@DeleteMapping("{id}/games")
 	public ResponseEntity<?> deletePartidas(@PathVariable(value = "id") Long id) {
 
-		Optional<Jugador> ojugador =jugadorService.findById(id);
+		Optional<Jugador> ojugador =jugadorService.getJugadorById(id);
 		if(! ojugador.isPresent()) {
 			return ResponseEntity.notFound().build();
 		}

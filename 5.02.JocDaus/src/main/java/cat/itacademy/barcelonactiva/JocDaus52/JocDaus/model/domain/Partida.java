@@ -28,11 +28,11 @@ public class Partida implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "partidaId")
 	private Long partidaId;
-	@Column(name = "Dado1")
+	@Column(name = "Dado1", nullable = false, updatable = false)
 	private int dado1;
-	@Column(name = "Dado2")
+	@Column(name = "Dado2", nullable = false, updatable = false)
 	private int dado2;
-	@Column(name = "Ganar")
+	@Column(name = "Ganar", nullable = false, updatable = false)
 	private boolean ganar;
 	
 	
